@@ -4,7 +4,7 @@
 #
 Name     : pysendfile
 Version  : 2.0.0
-Release  : 14
+Release  : 15
 URL      : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
 Summary  : No detailed summary available
@@ -13,7 +13,6 @@ License  : MIT
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : py
-BuildRequires : pysendfile
 BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
@@ -37,7 +36,8 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=intel.com,localhost
-py.test
+PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages py.test-2.7 --verbose
+PYTHONPATH=%{buildroot}/usr/lib/python3.5/site-packages py.test-3.5 --verbose
 %install
 rm -rf %{buildroot}
 python2 setup.py build -b py2 install --root=%{buildroot}
