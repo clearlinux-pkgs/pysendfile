@@ -9,7 +9,8 @@ URL      : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0
 Source0  : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : MIT
+License  : HPND MIT
+Requires: pysendfile-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : py
@@ -25,6 +26,14 @@ Quick links
 * Home page: http://code.google.com/p/pysendfile
 * Download: http://code.google.com/p/pysendfile/downloads/list
 
+%package python
+Summary: python components for the pysendfile package.
+Group: Default
+
+%description python
+python components for the pysendfile package.
+
+
 %prep
 %setup -q -n pysendfile-2.0.0
 
@@ -32,16 +41,14 @@ Quick links
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
-PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages py.test-2.7 --verbose
-PYTHONPATH=%{buildroot}/usr/lib/python3.5/site-packages py.test-3.5 --verbose
 %install
 rm -rf %{buildroot}
-python2 setup.py build -b py2 install --root=%{buildroot}
-python3 setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot}
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
+
+%files python
+%defattr(-,root,root,-)
+/usr/lib/python*/*
