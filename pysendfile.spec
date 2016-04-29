@@ -4,7 +4,7 @@
 #
 Name     : pysendfile
 Version  : 2.0.0
-Release  : 17
+Release  : 18
 URL      : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
 Summary  : No detailed summary available
