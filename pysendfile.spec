@@ -4,7 +4,7 @@
 #
 Name     : pysendfile
 Version  : 2.0.1
-Release  : 22
+Release  : 23
 URL      : http://pypi.debian.net/pysendfile/pysendfile-2.0.1.tar.gz
 Source0  : http://pypi.debian.net/pysendfile/pysendfile-2.0.1.tar.gz
 Summary  : A Python interface to sendfile(2)
