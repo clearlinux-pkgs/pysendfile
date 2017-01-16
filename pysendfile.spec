@@ -4,7 +4,7 @@
 #
 Name     : pysendfile
 Version  : 2.0.1
-Release  : 24
+Release  : 25
 URL      : http://pypi.debian.net/pysendfile/pysendfile-2.0.1.tar.gz
 Source0  : http://pypi.debian.net/pysendfile/pysendfile-2.0.1.tar.gz
 Summary  : A Python interface to sendfile(2)
@@ -37,13 +37,15 @@ python components for the pysendfile package.
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484566042
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
+export SOURCE_DATE_EPOCH=1484566042
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
