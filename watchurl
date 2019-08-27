@@ -1,3 +1,0 @@
-# openstack test suit needs version == 2.0.0
-# once they update requirement, we can push 2.x.y versions
-watchurl=https://pypi.python.org/packages/source/p/pysendfile/pysendfile-2.0.0.tar.gz
